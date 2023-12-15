@@ -20,14 +20,9 @@ def index():
 
 @app.route('/calcular_troco', methods=['POST'])
 def calcular_troco_route():
-    if request.method == 'POST':
-        try:
-            valorCompra = float(request.form['valorCompra'])
-            valorRecebido = float(request.form['valorRecebido'])
-
-            resultado = calcular_troco(valorCompra, valorRecebido)
-            return render_template('index.html', resultado=resultado)
-        except Exception as e:
-            return f"Erro ao processar a solicitação: {str(e)}"
+        valorCompra = float(request.form['valorCompra'])
+        valorRecebido = float(request.form['valorRecebido'])
+        resultado = calcular_troco(valorCompra, valorRecebido)
+        return render_template('index.html', resultado=resultado)
 
 app.run(debug=True)
