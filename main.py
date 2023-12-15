@@ -9,7 +9,8 @@ def formataReal(valor):
 def calcular_troco(valorCompra, valorRecebido):
         if valorCompra<valorRecebido:
                 troco = valorRecebido - valorCompra
-                return "Valor do troco: R${}".format(formataReal(troco))
+                resultado = "Total da compra: R${}<br>Valor recebido: R${}<br>[Valor do troco: R${}]".format(formataReal(valorCompra), formataReal(valorRecebido), formataReal(troco))
+                return resultado
         elif valorCompra>valorRecebido:
                 falta = valorCompra - valorRecebido
                 return "Dinheiro insuficiente. Parte faltante: {}".format(formataReal(falta))
@@ -22,6 +23,7 @@ def index():
 def calcular_troco_route():
         valorCompra = float(request.form['valorCompra'])
         valorRecebido = float(request.form['valorRecebido'])
+
         resultado = calcular_troco(valorCompra, valorRecebido)
         return render_template('index.html', resultado=resultado)
 
