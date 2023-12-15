@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de troco</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Comic Sans MS, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calcule seu troco:</h1>
+        <form action="/calcular_troco" method="post">
+            <label for="valorCompra">Valor da Compra:</label>
+            <input type="text" id="valorCompra" name="valorCompra"><br><br>
+            <label for="valorRecebido">Valor Recebido:</label>
+            <input type="text" id="valorRecebido" name="valorRecebido"><br><br>
+            <input type="submit" value="Calcular">
+        </form>
+        <p>{% if resultado %}{{ resultado }}{% endif %}</p>
+    </div>
+</body>
+</html>
